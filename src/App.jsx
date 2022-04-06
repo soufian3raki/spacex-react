@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
-import logo from "./assets/logo-spacex.png";
+//! componentes de chakra
+import { Center, Heading } from "@chakra-ui/react";
+// componentes de react
 import * as API from "./services/launches";
+// importar imagen
+import logo from "./assets/logo-spacex.png";
+import { LaunchItem } from "./components/LaunchItem";
 
 export function App() {
   const [launches, setLaunches] = useState([]);
@@ -12,15 +17,14 @@ export function App() {
   return (
     <>
       <img src={logo} width={300} />
-      <h1>SpaceX Launches</h1>
-      <ul> 
+      <Heading as="h1" size="lg" m={4} align="center">
+        SpaceX Launches
+      </Heading>
+      <section>
         {launches.map(launch => (
-          <li key={launch.flight_number}>
-            <h2>{launch.mission_name}</h2>
-            <p>{launch.details}</p>
-          </li>
+          <LaunchItem key={launch.flight_number} {...launch}/>
         ))}
-      </ul>
+      </section>
     </>
   )
 }
