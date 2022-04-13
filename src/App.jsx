@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-//! componentes de chakra
+//! component of Chakra
 import { Center, Heading } from "@chakra-ui/react";
-// componentes de react
+// component de react
 import * as API from "./services/launches";
-// importar imagen
+// important images
 import logo from "./assets/logo-spacex.png";
 import { LaunchItem } from "./components/LaunchItem";
 
@@ -22,7 +22,7 @@ export function App() {
       </Heading>
       <section>
         {launches.map(launch => (
-          <LaunchItem key={launch.flight_number} {...launch}/>
+          <LaunchItem key={launch.flight_number} {...launch} />
         ))}
       </section>
     </>
